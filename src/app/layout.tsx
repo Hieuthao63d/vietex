@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
-import FloatingMessage from "@/components/FloatingMessage";
+import LayoutWrapper from "@/components/LayoutWrapper";
+import SmoothScroller from "@/components/SmoothScroller";
+import GlobalAnimations from "@/components/animations/GlobalAnimations";
+import { LanguageProvider } from "@/context/LanguageContext";
 
 export const metadata: Metadata = {
   title: "Vietex | Your dedicated partner for Vietnamese exports",
@@ -17,12 +18,14 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body suppressHydrationWarning style={{ fontFamily: "'Times New Roman', Times, serif" }}>
-        <Navigation />
-        <main className="min-h-screen pt-[116px]">
-          {children}
-        </main>
-        <Footer />
-        <FloatingMessage />
+        <LanguageProvider>
+          <SmoothScroller>
+            <GlobalAnimations />
+            <LayoutWrapper>
+              {children}
+            </LayoutWrapper>
+          </SmoothScroller>
+        </LanguageProvider>
       </body>
     </html>
   );

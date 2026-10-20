@@ -4,26 +4,30 @@ import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-
-const slides = [
-  {
-    id: 1,
-    title: "Your dedicated partner for Vietnamese exports.",
-    subtitle: "We connect vetted farms and processing facilities across Vietnam with importers, distributors and food businesses worldwide.",
-    image: "/images/slider/sl1.png",
-    color: "golden",
-  },
-  {
-    id: 2,
-    title: "Traceable to sourcing region",
-    subtitle: "Consignment - Origin: Vietnam",
-    image: "/images/slider/sl2.png",
-    color: "green",
-  },
-];
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function HeroSlider() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const { t } = useLanguage();
+
+  const slides = [
+    {
+      id: 1,
+      titlePart1: t("hero.slide1TitlePart1"),
+      titleHighlight: t("hero.slide1TitleHighlight"),
+      subtitle: t("hero.slide1Subtitle"),
+      image: "/images/slider/sl1.png",
+      color: "golden",
+    },
+    {
+      id: 2,
+      titlePart1: t("hero.slide2Title"),
+      titleHighlight: "",
+      subtitle: t("hero.slide2Subtitle"),
+      image: "/images/slider/sl2.png",
+      color: "green",
+    },
+  ];
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
@@ -62,12 +66,11 @@ export default function HeroSlider() {
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.3 }}
-                className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight mb-4 text-[#111827]"
+                className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tight mb-4 text-[#111827]"
               >
-                {slides[currentSlide].title.split("Vietnamese exports.").map((part, i, arr) => 
-                  i < arr.length - 1 ? 
-                  <span key={i}>{part}<span className="text-primary-golden">Vietnamese exports.</span></span> : 
-                  <span key={i}>{part}</span>
+                <span>{slides[currentSlide].titlePart1}</span>
+                {slides[currentSlide].titleHighlight && (
+                  <span className="text-primary-golden">{slides[currentSlide].titleHighlight}</span>
                 )}
               </motion.h1>
               
@@ -87,10 +90,10 @@ export default function HeroSlider() {
                 className="flex flex-wrap gap-4"
               >
                 <Link href="/products" className="bg-primary-golden hover:bg-yellow-600 text-white px-8 py-3 rounded-full font-bold transition-all shadow-lg hover:shadow-xl">
-                  Explore products →
+                  {t("hero.exploreBtn")}
                 </Link>
-                <Link href="/about" className="glass-light px-8 py-3 rounded-full font-bold transition-all hover:bg-white/40 text-gray-900">
-                  How we work
+                <Link href="/how-we-work" className="glass-light px-8 py-3 rounded-full font-bold transition-all hover:bg-white/40 text-gray-900">
+                  {t("hero.howWeWorkBtn")}
                 </Link>
               </motion.div>
             </div>

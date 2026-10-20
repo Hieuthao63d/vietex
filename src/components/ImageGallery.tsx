@@ -22,7 +22,7 @@ export default function ImageGallery({ images, productName }: ImageGalleryProps)
 
   if (!images || images.length === 0) {
     return (
-      <div className="h-[600px] bg-gray-100 rounded-[2rem] flex items-center justify-center border border-gray-100">
+      <div className="aspect-square bg-gray-100 rounded-[2rem] flex items-center justify-center border border-gray-100">
         <span className="text-gray-400 font-medium">No image available</span>
       </div>
     );
@@ -31,7 +31,7 @@ export default function ImageGallery({ images, productName }: ImageGalleryProps)
   return (
     <div className="flex flex-col space-y-4">
       {/* Main Image View */}
-      <div className="ag-gallery-container relative h-[350px] md:h-[450px] w-full rounded-[2rem] overflow-hidden bg-[#FDF9F1] border border-[#E8DCC2]">
+      <div className="ag-gallery-container relative aspect-square w-full rounded-[2rem] overflow-hidden bg-[#FDF9F1] border border-[#E8DCC2]">
         
         {/* Sliding Band Wrapper */}
         <div 

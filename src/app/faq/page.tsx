@@ -2,43 +2,21 @@
 
 import { useState } from "react";
 import { Plus, Minus, MessageCircleQuestion } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function FAQPage() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const { t } = useLanguage();
 
   const faqs = [
-    {
-      question: "Who is Vietex Global?",
-      answer: "Vietex Global is a Vietnam-based B2B agricultural products exporter. We connect international importers, distributors, wholesalers, retailers, and foodservice buyers with quality Vietnamese products, particularly canned fruits and processed agricultural goods."
-    },
-    {
-      question: "What products does Vietex Global export?",
-      answer: "Our product portfolio includes canned pineapple, canned lychee, canned longan, canned coconut, canned lime, and other Vietnamese agricultural products. Product availability may vary depending on the harvest season, processing schedule, and buyer requirements."
-    },
-    {
-      question: "Does Vietex Global provide OEM and private-label services?",
-      answer: "Yes. Vietex Global supports OEM and private-label orders for international buyers. Depending on the product and order quantity, we can discuss customized labels, packaging formats, product specifications, carton designs, and other branding requirements."
-    },
-    {
-      question: "Are Halal-certified products available?",
-      answer: "Halal-certified options may be available depending on the selected product and manufacturing facility. Buyers should provide their target market and certification requirements so our team can verify the appropriate factory and documentation before preparing a quotation."
-    },
-    {
-      question: "What is the minimum order quantity (MOQ)?",
-      answer: "The minimum order quantity depends on the product, packaging format, label requirements, and destination market. Please share your expected order volume with us, and our team will recommend a suitable MOQ and purchasing option."
-    },
-    {
-      question: "Can I request product samples before placing an order?",
-      answer: "Yes, buyers can contact Vietex Global to request product samples for quality evaluation. Sample availability, sample costs, and international courier fees will be confirmed based on the product and delivery destination."
-    },
-    {
-      question: "What packaging options are available?",
-      answer: "Packaging options vary by product and may include different can sizes, carton specifications, retail packaging, and foodservice formats. OEM buyers may also request customized labels and packaging, subject to technical feasibility and minimum order requirements."
-    },
-    {
-      question: "How can I request a quotation from Vietex Global?",
-      answer: "You can submit a Request for Quotation through our website. Please provide your company name, country, product of interest, expected quantity, packaging requirements, certification needs, OEM or private-label requirements, destination port, and preferred delivery timeline. Our team will review your request and contact you with the relevant product specifications, pricing, and estimated lead time."
-    }
+    { question: t("faq.q1"), answer: t("faq.a1") },
+    { question: t("faq.q2"), answer: t("faq.a2") },
+    { question: t("faq.q3"), answer: t("faq.a3") },
+    { question: t("faq.q4"), answer: t("faq.a4") },
+    { question: t("faq.q5"), answer: t("faq.a5") },
+    { question: t("faq.q6"), answer: t("faq.a6") },
+    { question: t("faq.q7"), answer: t("faq.a7") },
+    { question: t("faq.q8"), answer: t("faq.a8") },
   ];
 
   return (
@@ -48,13 +26,13 @@ export default function FAQPage() {
           <MessageCircleQuestion className="text-primary-golden" size={32} />
         </div>
         <h4 className="text-primary-golden font-bold tracking-[0.2em] uppercase text-sm mb-4">
-          Support & Information
+          {t("faq.badge")}
         </h4>
         <h1 className="text-4xl md:text-5xl font-black mb-6 text-gray-900 leading-tight">
-          Frequently Asked Questions
+          {t("faq.title")}
         </h1>
         <p className="text-xl text-gray-600">
-          Find answers to common questions about our products, services, and export processes.
+          {t("faq.subtitle")}
         </p>
       </div>
 

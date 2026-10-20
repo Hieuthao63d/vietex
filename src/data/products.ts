@@ -9,16 +9,94 @@ export interface Category {
   id: string; // The SEO slug, e.g. "canned-fruits"
   name: string;
   description?: string;
+  translations?: Record<string, { name: string; description?: string }>;
 }
 
 export const categories: Category[] = [
-  { id: "canned-fruits", name: "Canned Fruits" },
-  { id: "canned-vegetables", name: "Canned Vegetables" },
-  { id: "dried-fruits", name: "Dried Fruits" },
-  { id: "frozen-fruits", name: "Frozen Fruits" },
-  { id: "fruit-juice-concentrates", name: "Fruit Juice / Concentrates" },
-  { id: "fresh-fruits", name: "Fresh Fruits" },
-  { id: "canned-fish", name: "Canned Fish" },
+  {
+    id: "canned-fruits",
+    name: "Canned Fruits",
+    translations: {
+      en: { name: "Canned Fruits", description: "Premium canned tropical fruits sourced from Vietnam." },
+      vi: { name: "Trái Cây Đóng Hộp", description: "Trái cây nhiệt đới đóng hộp thượng hạng xuất khẩu từ Việt Nam." },
+      ko: { name: "과일 통조림", description: "베트남에서 엄선하여 가공한 프리미엄 열대 과일 통조림입니다." },
+      th: { name: "ผลไม้กระป๋อง", description: "ผลไม้เมืองร้อนบรรจุกระป๋องคุณภาพพรีเมียมส่งออกจากเวียดนาม" },
+      ms: { name: "Buah-buahan Dalam Tin", description: "Buah-buahan tropika dalam tin berkualiti tinggi dari Vietnam." },
+      id: { name: "Buah Kaleng", description: "Buah-buahan tropis kalengan berkualitas premium dari Vietnam." }
+    }
+  },
+  {
+    id: "canned-vegetables",
+    name: "Canned Vegetables",
+    translations: {
+      en: { name: "Canned Vegetables", description: "Crisp, farm-fresh canned vegetables processed at peak maturity." },
+      vi: { name: "Rau Củ Đóng Hộp", description: "Rau củ tươi ngon đóng hộp giữ trọn độ giòn ngọt tự nhiên." },
+      ko: { name: "야채 통조림", description: "산지의 신선함과 아삭한 식감을 그대로 담은 베트남산 야채 통조림입니다." },
+      th: { name: "ผักกระป๋อง", description: "ผักสดจากฟาร์มบรรจุกระป๋อง คงความกรอบและคุณค่าทางอาหารครบถ้วน" },
+      ms: { name: "Sayur-sayuran Dalam Tin", description: "Sayur-sayuran segar dari ladang yang ditinkan pada tahap kematangan terbaik." },
+      id: { name: "Sayuran Kaleng", description: "Sayuran segar pilihan dari pertanian yang dikalengkan dengan standar mutu internasional." }
+    }
+  },
+  {
+    id: "dried-fruits",
+    name: "Dried Fruits",
+    translations: {
+      en: { name: "Dried Fruits", description: "Naturally sweet soft-dried tropical fruits with rich flavor." },
+      vi: { name: "Trái Cây Sấy", description: "Trái cây nhiệt đới sấy dẻo giữ nguyên hương vị thơm ngọt tự nhiên." },
+      ko: { name: "건조 과일", description: "열대 과일 본연의 달콤한 맛과 영양을 살린 프리미엄 건과일입니다." },
+      th: { name: "ผลไม้อบแห้ง", description: "ผลไม้เมืองร้อนอบแห้งเนื้อนุ่ม รสชาติหวานหอมตามธรรมชาติ" },
+      ms: { name: "Buah-buahan Kering", description: "Buah-buahan tropika kering lembut yang manis semula jadi dan kaya rasa." },
+      id: { name: "Buah Kering", description: "Buah tropis kering lembut dengan rasa manis alami khas Vietnam." }
+    }
+  },
+  {
+    id: "frozen-fruits",
+    name: "Frozen Fruits",
+    translations: {
+      en: { name: "Frozen Fruits", description: "IQF quick-frozen tropical fruits locking in natural freshness and nutrition." },
+      vi: { name: "Trái Cây Đông Lạnh (IQF)", description: "Trái cây cấp đông nhanh IQF giữ trọn độ tươi ngon và dinh dưỡng." },
+      ko: { name: "냉동 과일 (IQF)", description: "수확 직후 급속 냉동(IQF)하여 과일의 신선도와 과즙을 그대로 보존했습니다." },
+      th: { name: "ผลไม้แช่แข็ง (IQF)", description: "ผลไม้เมืองร้อนแช่แข็งด่วนแบบ IQF คงความสดใหม่และคุณค่าทางโภชนาการ" },
+      ms: { name: "Buah-buahan Beku (IQF)", description: "Buah-buahan tropika sejuk beku pantas IQF yang mengekalkan kesegaran semula jadi." },
+      id: { name: "Buah Beku (IQF)", description: "Buah tropis beku cepat (IQF) yang mengunci kesegaran dan nutrisi alami." }
+    }
+  },
+  {
+    id: "fruit-juice-concentrates",
+    name: "Fruit Juice / Concentrates",
+    translations: {
+      en: { name: "Fruit Juice / Concentrates", description: "100% natural fruit purees, NFC juices, and concentrates for beverage & food manufacturing." },
+      vi: { name: "Nước Ép & Trái Cây Cô Đặc", description: "Nước ép nguyên chất, Puree và nước cốt trái cây cô đặc phục vụ ngành thực phẩm & đồ uống." },
+      ko: { name: "과일 주스 및 농축액", description: "식음료 제조 산업을 위한 100% 천연 과일 퓨레, 착즙 주스 및 고품질 농축액입니다." },
+      th: { name: "น้ำผลไม้และน้ำผลไม้เข้มข้น", description: "เพียวเร่ผลไม้ น้ำผลไม้แท้ และน้ำผลไม้เข้มข้นสำหรับอุตสาหกรรมอาหารและเครื่องดื่ม" },
+      ms: { name: "Jus Buah / Pati Pekat", description: "Puri buah asli, jus dan pati buah pekat untuk industri makanan dan minuman." },
+      id: { name: "Jus Buah / Konsentrat", description: "Puree buah murni, jus, dan konsentrat buah untuk industri makanan dan minuman." }
+    }
+  },
+  {
+    id: "fresh-fruits",
+    name: "Fresh Fruits",
+    translations: {
+      en: { name: "Fresh Fruits", description: "Export-grade fresh tropical fruits and agricultural produce harvested from GlobalGAP farms." },
+      vi: { name: "Trái Cây & Nông Sản Tươi", description: "Trái cây và nông sản tươi đạt chuẩn GlobalGAP xuất khẩu trực tiếp từ nhà vườn." },
+      ko: { name: "신선 과일 및 농산물", description: "인증된 농장에서 수확하여 산지 직송하는 수출 등급 신선 열대 과일 및 농산물입니다." },
+      th: { name: "ผลไม้สดและผลผลิตทางการเกษตร", description: "ผลไม้เมืองร้อนและพืชผลทางการเกษตรสดเกรดส่งออกจากฟาร์มมาตรฐานสากล" },
+      ms: { name: "Buah-buahan Segar", description: "Buah-buahan tropika segar gred eksport terus dari ladang yang disahkan." },
+      id: { name: "Buah Segar", description: "Buah-buahan tropis segar mutu ekspor langsung dari perkebunan bersertifikat." }
+    }
+  },
+  {
+    id: "canned-fish",
+    name: "Canned Fish",
+    translations: {
+      en: { name: "Canned Fish", description: "High-protein wild-caught canned tuna and sardines in premium sauces and oils." },
+      vi: { name: "Cá Đóng Hộp", description: "Cá ngừ và cá mòi đại dương đóng hộp giàu dinh dưỡng theo tiêu chuẩn quốc tế." },
+      ko: { name: "수산물 통조림", description: "엄선된 원양산 참치와 정어리로 만든 고단백 프리미엄 수산물 통조림입니다." },
+      th: { name: "ปลากระป๋อง", description: "ปลาทูน่าและปลาซาร์ดีนกระป๋องคุณภาพสูงในซอสและน้ำมันเกรดพรีเมียม" },
+      ms: { name: "Ikan Dalam Tin", description: "Tuna dan sardin laut dalam tin berkualiti tinggi untuk pasaran antarabangsa." },
+      id: { name: "Ikan Kaleng", description: "Tuna dan sarden tangkapan laut lepas kalengan berkualitas ekspor." }
+    }
+  },
 ];
 
 export const products: Product[] = [
@@ -74,5 +152,3 @@ export const products: Product[] = [
 export const getCategoryById = (id: string) => categories.find(c => c.id === id);
 export const getProductsByCategory = (categoryId: string) => products.filter(p => p.categoryId === categoryId);
 export const getProductById = (id: string) => products.find(p => p.id === id);
-
-

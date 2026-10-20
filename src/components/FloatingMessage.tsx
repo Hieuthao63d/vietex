@@ -48,13 +48,13 @@ export default function FloatingMessage() {
         </Link>
         
         {/* Phone */}
-        <Link href="tel:+84366842600"
+        <Link href="tel:+84332671167"
           className="group relative flex items-center justify-center w-12 h-12 bg-white border border-primary-golden/20 text-primary-golden rounded-full shadow-lg hover:shadow-xl hover:bg-primary-golden hover:text-white transition-all duration-300 hover:scale-110 animate-bounce"
           style={{ animationDuration: '3.2s', animationDelay: '1.5s' }}
         >
           <Phone size={20} />
           <span className="absolute right-14 bg-white/90 backdrop-blur-sm text-primary-golden border border-primary-golden/30 text-sm font-bold px-3 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-md pointer-events-none">
-            Hotline: +84 366 842 600
+            Hotline: +84 332 671 167
           </span>
         </Link>
       </div>
