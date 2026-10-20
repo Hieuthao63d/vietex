@@ -59,6 +59,12 @@ export default function ProductsCatalogueClient({ products }: { products: any[] 
                           src={featuredImg} 
                           alt={localized.name}
                           className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                          onError={(e) => {
+                            const target = e.target as HTMLImageElement;
+                            if (!target.src.includes('placeholder.png')) {
+                              target.src = '/images/products/placeholder.png';
+                            }
+                          }}
                         />
                       </div>
                       <h3 className="text-xl font-bold text-gray-900 group-hover:text-primary-golden transition-colors line-clamp-2">

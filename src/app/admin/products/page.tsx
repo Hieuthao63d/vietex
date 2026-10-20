@@ -126,7 +126,19 @@ export default function AdminProductsPage() {
               <div key={product.id} className="p-5 flex items-center justify-between hover:bg-gray-50 transition-colors">
                 <div className="flex items-center gap-5">
                   <div className="w-16 h-16 rounded-lg overflow-hidden border border-gray-100 bg-gray-50 shrink-0">
-                    {featuredImg && <img src={featuredImg} alt={product.name} className="w-full h-full object-cover" />}
+                    {featuredImg && (
+                      <img 
+                        src={featuredImg} 
+                        alt={product.name} 
+                        className="w-full h-full object-cover" 
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          if (!target.src.includes('placeholder.png')) {
+                            target.src = '/images/products/placeholder.png';
+                          }
+                        }}
+                      />
+                    )}
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900 text-lg mb-1">{product.name}</h3>
